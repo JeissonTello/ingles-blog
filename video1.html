@@ -3,51 +3,58 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Video Interview - GA2-240202501-AA1-EV02</title>
+  <title>Video Interview - GA2-240202501-AA2-EV02</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
       font-family: 'Segoe UI', sans-serif;
-      overflow-x: hidden;
       background: #0f2027;
       color: #fff;
-    }
-
-    canvas {
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: -1;
+      overflow-x: hidden;
     }
 
     header {
       background: rgba(0, 77, 153, 0.8);
-      backdrop-filter: blur(10px);
       padding: 2rem;
       text-align: center;
       border-bottom: 2px solid #00cfff;
+    }
+
+    header h1, header p {
+      margin: 0;
+      color: #00cfff;
     }
 
     main {
       max-width: 900px;
       margin: 2rem auto;
       background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(12px);
+      backdrop-filter: blur(10px);
       padding: 2rem;
       border-radius: 20px;
       box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
     }
 
-    h1, h2 {
+    h2 {
       color: #00cfff;
+      margin-bottom: 1rem;
+    }
+
+    .description {
+      font-style: italic;
+      color: #ccc;
+      margin-bottom: 2rem;
     }
 
     .video-container {
       position: relative;
       padding-bottom: 56.25%;
       height: 0;
-      margin: 1.5rem 0;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+      margin-bottom: 2rem;
     }
 
     .video-container iframe {
@@ -55,18 +62,12 @@
       top: 0; left: 0;
       width: 100%;
       height: 100%;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-    }
-
-    .description {
-      font-style: italic;
-      color: #ddd;
+      border: 0;
     }
 
     .back-button {
       display: inline-block;
-      margin-top: 2rem;
+      margin-top: 1rem;
       padding: 0.6rem 1.2rem;
       background-color: #00cfff;
       color: #000;
@@ -82,7 +83,6 @@
   </style>
 </head>
 <body>
-  <canvas id="background"></canvas>
 
   <header>
     <h1>Video Interview</h1>
@@ -92,15 +92,17 @@
   <main>
     <h2>Description</h2>
     <p class="description">
-      This video presents a virtual interview conducted in English as part of the evidence requirements. The objective was to apply communication skills in a simulated professional environment.
+      This video presents a virtual interview conducted in English. It highlights the most used tools in software development, such as GitHub, Docker, Visual Studio Code, and Trello.
     </p>
 
-   <div class="video-container">
-    <iframe src="https://youtu.be/ZZU7YIboSJw?si=gf6Zclrx-iMAW_-E" frameborder="0" allowfullscreen></iframe>
-  </div>
-
-  
-    
+    <div class="video-container">
+      <iframe 
+        src="https://www.youtube.com/embed/ZZU7YIboSJw" 
+        title="Most Used Tools in Software Development"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    </div>
 
     <a href="index.html" class="back-button">← Back to Home</a>
   </main>
@@ -160,5 +162,6 @@
     initParticles();
     animateParticles();
   </script>
+
 </body>
 </html>
