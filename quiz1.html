@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Questionnaire 1 - GA1-240202501-AA1-EV01</title>
-  <link rel="stylesheet" href="style.css" />
   <style>
     * {
       margin: 0;
@@ -14,7 +13,7 @@
 
     body {
       font-family: 'Segoe UI', sans-serif;
-      overflow: hidden;
+      overflow-x: hidden;
       background: #0f2027;
       color: #fff;
     }
@@ -29,28 +28,45 @@
     header {
       background: rgba(0, 77, 153, 0.8);
       backdrop-filter: blur(10px);
-      padding: 2rem;
+      padding: 2.5rem 1rem;
       text-align: center;
       border-bottom: 2px solid #00cfff;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      color: #00cfff;
+    }
+
+    header p {
+      font-size: 1.1rem;
+      color: #fff;
     }
 
     main {
       max-width: 900px;
       margin: 2rem auto;
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(12px);
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(10px);
       padding: 2rem;
       border-radius: 20px;
       box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+      animation: fadeIn 1.2s ease-in-out;
     }
 
-    h1, h2 {
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h2 {
       color: #00cfff;
+      margin-bottom: 0.5rem;
     }
 
     .content-placeholder {
       font-style: italic;
-      color: #ddd;
+      color: #ccc;
       margin-bottom: 2rem;
     }
 
@@ -58,27 +74,33 @@
       width: 100%;
       border-radius: 10px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-      margin: 1rem 0;
+      transition: transform 0.3s ease;
+    }
+
+    img:hover {
+      transform: scale(1.05);
     }
 
     .back-button {
       display: inline-block;
       margin-top: 2rem;
-      padding: 0.6rem 1.2rem;
+      padding: 0.8rem 1.6rem;
       background-color: #00cfff;
       color: #000;
       border-radius: 10px;
       text-decoration: none;
       font-weight: bold;
-      transition: all 0.3s ease;
+      transition: background 0.3s ease, transform 0.3s ease;
     }
 
     .back-button:hover {
-      background-color: #00aadd;
+      background-color: #009acd;
+      transform: scale(1.05);
     }
   </style>
 </head>
 <body>
+
   <canvas id="background"></canvas>
 
   <header>
@@ -89,11 +111,11 @@
   <main>
     <h2>Questionnaire Description</h2>
     <p class="content-placeholder">
-      This section includes the answers or summary of the first English quiz.
+      This section includes the answers or summary of the first English questionnaire, focusing on comprehension and expression in written form.
     </p>
 
     <h2>Evidence Screenshot</h2>
-    <img src="images/evidence-quiz1.png.png" alt="Screenshot of Quiz 1 Evidence" />
+    <img src="images/evidence-quiz1.png" alt="Screenshot of Quiz 1 Evidence" />
 
     <a href="index.html" class="back-button">← Back to Home</a>
   </main>
@@ -156,5 +178,6 @@
     initParticles();
     animateParticles();
   </script>
+
 </body>
 </html>
