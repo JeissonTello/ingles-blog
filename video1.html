@@ -14,11 +14,19 @@
       overflow-x: hidden;
     }
 
+    canvas#background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+
     header {
-      background: rgba(0, 77, 153, 0.8);
+      background: rgba(0, 77, 153, 0.9);
       padding: 2rem;
       text-align: center;
       border-bottom: 2px solid #00cfff;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
     }
 
     header h1, header p {
@@ -29,11 +37,11 @@
     main {
       max-width: 900px;
       margin: 2rem auto;
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(10px);
+      background: rgba(255, 255, 255, 0.07);
+      backdrop-filter: blur(12px);
       padding: 2rem;
       border-radius: 20px;
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
     }
 
     h2 {
@@ -84,6 +92,9 @@
 </head>
 <body>
 
+  <!-- Fondo animado -->
+  <canvas id="background"></canvas>
+
   <header>
     <h1>Presentation</h1>
     <p>Evidence Code: GA2-240202501-AA2-EV02</p>
@@ -107,6 +118,7 @@
     <a href="index.html" class="back-button">← Back to Home</a>
   </main>
 
+  <!-- Script del fondo animado -->
   <script>
     const canvas = document.getElementById("background");
     const ctx = canvas.getContext("2d");
@@ -122,8 +134,8 @@
         this.y = Math.random() * canvas.height;
         this.radius = Math.random() * 2 + 1;
         this.color = colors[Math.floor(Math.random() * colors.length)];
-        this.speedX = (Math.random() - 0.5) * 0.8;
-        this.speedY = (Math.random() - 0.5) * 0.8;
+        this.speedX = (Math.random() - 0.5) * 1.5;
+        this.speedY = (Math.random() - 0.5) * 1.5;
       }
 
       draw() {
@@ -165,3 +177,4 @@
 
 </body>
 </html>
+
