@@ -1,40 +1,109 @@
 
-/* Proyecto: Blog de Evidencias en Inglés */
-
-// index.html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>English Learning Blog</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My English Learning Blog</title>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+
+    header {
+      background: linear-gradient(90deg, #004d99, #0073e6);
+      color: white;
+      padding: 3rem 1rem;
+      text-align: center;
+    }
+
+    header h1 {
+      margin-bottom: 0.5rem;
+      font-size: 2.5rem;
+    }
+
+    header p {
+      font-size: 1.1rem;
+    }
+
+    main {
+      padding: 2rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .card {
+      background-color: white;
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      text-decoration: none;
+      color: #004d99;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+    }
+
+    .card h2 {
+      margin-top: 0;
+      font-size: 1.4rem;
+    }
+
+    .card p {
+      color: #444;
+      font-size: 0.95rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      margin-top: 3rem;
+      background-color: #eee;
+      font-size: 0.9rem;
+    }
+  </style>
 </head>
 <body>
   <header>
     <h1>Welcome to My English Learning Blog</h1>
-    <p>This site contains my English learning evidence: video, audio, and written content.</p>
+    <p>This space presents my evidence in English: videos, audios, and written texts created throughout the training process.</p>
   </header>
+
   <main>
-    <section class="cards">
+    <div class="card-grid">
       <a href="video.html" class="card">
         <h2>🎥 Video Evidence</h2>
-        <p>Watch the video I recorded in English.</p>
+        <p>Watch the video where I present myself and speak in English.</p>
       </a>
+
       <a href="audio.html" class="card">
         <h2>🎧 Audio Evidence</h2>
-        <p>Listen to my audio presentation.</p>
+        <p>Listen to my pronunciation and speaking skills through an audio presentation.</p>
       </a>
+
       <a href="text.html" class="card">
         <h2>📝 Text Evidence</h2>
-        <p>Read the written texts I created.</p>
+        <p>Read the texts I wrote in English, including essays and reflections.</p>
       </a>
-    </section>
+    </div>
   </main>
+
   <footer>
-    <p>Created by Jeisson Tello – SENA</p>
+    <p>Created by Jeisson Tello &mdash; SENA 2025</p>
   </footer>
 </body>
 </html>
-
-
