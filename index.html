@@ -1,37 +1,53 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>My English Learning Blog</title>
-  <link rel="stylesheet" href="style.css"/>
+  <title>Evidence of the Mind map (Personal Learning Environment) PLE GA4-240202501-AA1-EV02 & Personal Blog GA4-240202501-AA1-EV03</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    * {
       margin: 0;
-      background-color: #f9f9f9;
-      color: #333;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0f2027;
+      color: #fff;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1;
     }
 
     header {
-      background: linear-gradient(90deg, #004d99, #0073e6);
-      color: white;
-      padding: 3rem 1rem;
       text-align: center;
+      padding: 4rem 1rem 2rem;
+      background: rgba(0, 77, 153, 0.9);
+      border-bottom: 2px solid #00cfff;
+      box-shadow: 0 0 12px rgba(0, 204, 255, 0.2);
     }
 
     header h1 {
-      margin-bottom: 0.5rem;
-      font-size: 2.5rem;
+      font-size: 2.8rem;
+      color: #fff;
+      margin-bottom: 0.6rem;
     }
 
     header p {
       font-size: 1.1rem;
+      color: #cdeaff;
     }
 
     main {
-      padding: 2rem;
+      padding: 3rem 2rem;
       max-width: 1200px;
       margin: auto;
     }
@@ -40,51 +56,55 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 2rem;
-      margin-top: 2rem;
     }
 
     .card {
-      background-color: white;
-      border-radius: 12px;
-      padding: 1.5rem;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(8px);
+      padding: 1.8rem;
+      border-radius: 15px;
       text-decoration: none;
-      color: #004d99;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      color: #fff;
+      box-shadow: 0 0 20px rgba(0, 204, 255, 0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 1px solid rgba(255, 255, 255, 0.08);
     }
 
     .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+      transform: translateY(-6px);
+      box-shadow: 0 0 25px rgba(0, 204, 255, 0.25);
     }
 
     .card h2 {
-      margin-top: 0;
-      font-size: 1.4rem;
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
     }
 
     .card p {
-      color: #444;
+      color: #a0cce5;
       font-size: 0.95rem;
     }
 
     footer {
       text-align: center;
-      padding: 1rem;
-      margin-top: 3rem;
-      background-color: #eee;
+      padding: 2rem 1rem;
+      background: rgba(255, 255, 255, 0.05);
       font-size: 0.9rem;
+      color: #ccc;
+      margin-top: 4rem;
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Welcome to My English Learning Blog</h1>
-    <p>This space presents my evidence in English: videos, audios, and written texts created throughout the training process.</p>
-  </header>
 
-  <main>
-      <main>
+<canvas id="background"></canvas>
+
+<header>
+  <h1>Welcome to My English Learning Blog</h1>
+  <p>This space presents my evidence in English: videos, audios, and written texts created throughout the training process.</p>
+</header>
+
+<main>
   <div class="card-grid">
     <!-- Cuestionarios -->
     <a href="quiz1.html" class="card"><h2>📄 Cuestionario 1</h2><p>GA1-240202501-AA1-EV01</p></a>
@@ -104,10 +124,65 @@
   </div>
 </main>
 
-  </main>
+<footer>
+  <p>Created by Jeisson Tello &mdash; SENA 2025</p>
+</footer>
 
-  <footer>
-    <p>Created by Jeisson Tello &mdash; SENA 2025</p>
-  </footer>
+<script>
+  const canvas = document.getElementById("background");
+  const ctx = canvas.getContext("2d");
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  const particles = [];
+  const colors = ["#00cfff", "#ffffff", "#00aaff", "#66ffff"];
+
+  class Particle {
+    constructor() {
+      this.x = Math.random() * canvas.width;
+      this.y = Math.random() * canvas.height;
+      this.radius = Math.random() * 2 + 1;
+      this.color = colors[Math.floor(Math.random() * colors.length)];
+      this.speedX = (Math.random() - 0.5) * 0.6;
+      this.speedY = (Math.random() - 0.5) * 0.6;
+    }
+
+    draw() {
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+      ctx.fillStyle = this.color;
+      ctx.fill();
+    }
+
+    update() {
+      this.x += this.speedX;
+      this.y += this.speedY;
+      if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+      if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+      this.draw();
+    }
+  }
+
+  function initParticles() {
+    for (let i = 0; i < 100; i++) {
+      particles.push(new Particle());
+    }
+  }
+
+  function animateParticles() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    particles.forEach(p => p.update());
+    requestAnimationFrame(animateParticles);
+  }
+
+  window.addEventListener("resize", () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  });
+
+  initParticles();
+  animateParticles();
+</script>
+
 </body>
 </html>
