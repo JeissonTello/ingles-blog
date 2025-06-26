@@ -93,31 +93,35 @@
       color: #ccc;
       margin-top: 4rem;
     }
+
+    @keyframes moveCharacter {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-10px); }
+}
   </style>
 </head>
 <body>
 
-<canvas id="background"></canvas>
+<!-- Fondo de partículas -->
+<canvas id="particles-background" style="position: fixed; top: 0; left: 0; z-index: -2;"></canvas>
 
+<!-- Muñeco animado -->
+<div id="animated-character" style="position: fixed; bottom: 0; left: 5%; z-index: -1;">
+  <img src="images/character.png" alt="Character" style="width: 120px; animation: moveCharacter 5s infinite alternate ease-in-out;">
+</div>
+  
 <header>
   <h1>Welcome to My English Learning Blog</h1>
   <p>This space presents my evidence in English: videos, audios, and written texts created throughout the training process.</p>
 </header>
   
-<section style="max-width: 1000px; margin: 2rem auto; background: rgba(255,255,255,0.05); padding: 1.5rem 2rem; border-radius: 16px; box-shadow: 0 0 15px rgba(0, 207, 255, 0.2); color: #eee; font-size: 1rem; line-height: 1.6;">
-  <h2 style="color: #00cfff; margin-bottom: 1rem;">🌟 My English Learning Journey</h2>
-  <p>
-    Welcome to this space where I share my journey of learning English. Throughout this process, I have developed a variety of activities that reflect my progress in understanding, using, and producing the language — from flowcharts and written documents to videos, audios, and personal strategies for self-study.
-  </p>
-  <p>
-    This blog serves as a digital portfolio where you will find all the evidence I have worked on during my training, accompanied by descriptions, reflections, and useful resources that have enriched my experience.
-  </p>
-  <p>
-    My goal is not only to document my learning progress but also to inspire others who, like me, are starting from scratch and want to improve their English skills step by step.
-  </p>
-  <p>
-    I invite you to explore each section and be part of this academic and personal growth adventure. With consistency, creativity, and motivation, learning English is absolutely possible!
-  </p>
+<!-- Introducción con animación -->
+<section id="intro-section" style="max-width: 1000px; margin: 3rem auto; background: rgba(255,255,255,0.05); padding: 1.8rem 2.2rem; border-radius: 16px; box-shadow: 0 0 18px rgba(0, 207, 255, 0.2); color: #eee; font-size: 1.05rem; line-height: 1.7; opacity: 0; transform: translateY(30px); transition: all 1.2s ease;">
+  <h2 style="color: #00cfff; margin-bottom: 1.2rem;">🌟 My English Learning Journey</h2>
+  <p>Welcome to this space where I share my journey of learning English. Throughout this process, I have developed a variety of activities that reflect my progress in understanding, using, and producing the language — from flowcharts and written documents to videos, audios, and personal strategies for self-study.</p>
+  <p>This blog serves as a digital portfolio where you will find all the evidence I have worked on during my training, accompanied by descriptions, reflections, and useful resources that have enriched my experience.</p>
+  <p>My goal is not only to document my learning progress but also to inspire others who, like me, are starting from scratch and want to improve their English skills step by step.</p>
+  <p>I invite you to explore each section and be part of this academic and personal growth adventure. With consistency, creativity, and motivation, learning English is absolutely possible!</p>
 </section>
 
 <main>
@@ -145,59 +149,60 @@
 </footer>
 
 <script>
-  const canvas = document.getElementById("background");
-  const ctx = canvas.getContext("2d");
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
+// Fondo de partículas
+const canvas = document.getElementById("particles-background");
+const ctx = canvas.getContext("2d");
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
 
-  const particles = [];
-  const colors = ["#00cfff", "#ffffff", "#00aaff", "#66ffff"];
+const particles = [];
+const colors = ["#00cfff", "#66ffff", "#ffffff", "#00aaff"];
 
-  class Particle {
-    constructor() {
-      this.x = Math.random() * canvas.width;
-      this.y = Math.random() * canvas.height;
-      this.radius = Math.random() * 2 + 1;
-      this.color = colors[Math.floor(Math.random() * colors.length)];
-      this.speedX = (Math.random() - 0.5) * 0.6;
-      this.speedY = (Math.random() - 0.5) * 0.6;
-    }
-
-    draw() {
-      ctx.beginPath();
-      ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-      ctx.fillStyle = this.color;
-      ctx.fill();
-    }
-
-    update() {
-      this.x += this.speedX;
-      this.y += this.speedY;
-      if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
-      if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
-      this.draw();
-    }
+class Particle {
+  constructor() {
+    this.x = Math.random() * canvas.width;
+    this.y = Math.random() * canvas.height;
+    this.radius = Math.random() * 2 + 1;
+    this.color = colors[Math.floor(Math.random() * colors.length)];
+    this.speedX = (Math.random() - 0.5) * 1;
+    this.speedY = (Math.random() - 0.5) * 1;
   }
 
-  function initParticles() {
-    for (let i = 0; i < 100; i++) {
-      particles.push(new Particle());
-    }
+  draw() {
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+    ctx.fillStyle = this.color;
+    ctx.fill();
   }
 
-  function animateParticles() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    particles.forEach(p => p.update());
-    requestAnimationFrame(animateParticles);
+  update() {
+    this.x += this.speedX;
+    this.y += this.speedY;
+    if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+    if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+    this.draw();
   }
+}
 
-  window.addEventListener("resize", () => {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-  });
+for (let i = 0; i < 120; i++) {
+  particles.push(new Particle());
+}
 
-  initParticles();
-  animateParticles();
+function animateParticles() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  particles.forEach(p => p.update());
+  requestAnimationFrame(animateParticles);
+}
+animateParticles();
+
+// Muñeco entra animado (opcional mover con mouse también)
+document.addEventListener("DOMContentLoaded", () => {
+  const intro = document.getElementById("intro-section");
+  setTimeout(() => {
+    intro.style.opacity = 1;
+    intro.style.transform = "translateY(0)";
+  }, 400);
+});
 </script>
 
 </body>
