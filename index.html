@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Mind Map Blog - English Evidence</title>
+  <title>My English Learning Blog</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -12,120 +13,176 @@
     }
 
     body {
-      background: radial-gradient(circle at center, #001f3f, #000);
-      font-family: 'Segoe UI', sans-serif;
-      color: white;
-      overflow: hidden;
+      font-family: 'Inter', sans-serif;
+      background: #0f2027;
+      color: #fff;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1;
     }
 
     header {
       text-align: center;
-      padding: 2rem;
-      background: rgba(0,0,0,0.5);
+      padding: 4rem 1rem 2rem;
+      background: rgba(0, 77, 153, 0.9);
+      border-bottom: 2px solid #00cfff;
+      box-shadow: 0 0 12px rgba(0, 204, 255, 0.2);
     }
 
     header h1 {
-      font-size: 2.5rem;
-      color: #00cfff;
+      font-size: 2.8rem;
+      color: #fff;
+      margin-bottom: 0.6rem;
     }
 
-    .map-container {
-      position: relative;
-      width: 100vw;
-      height: 100vh;
+    header p {
+      font-size: 1.1rem;
+      color: #cdeaff;
     }
 
-    .brain {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 180px;
-      height: 180px;
-      background: url('images/brain.png') no-repeat center/contain;
-      animation: pulse 3s infinite ease-in-out;
-      z-index: 2;
+    main {
+      padding: 3rem 2rem;
+      max-width: 1200px;
+      margin: auto;
     }
 
-    @keyframes pulse {
-      0%, 100% {
-        transform: translate(-50%, -50%) scale(1);
-      }
-      50% {
-        transform: translate(-50%, -50%) scale(1.08);
-      }
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
     }
 
     .card {
-      position: absolute;
-      width: 180px;
-      padding: 1rem;
-      background: rgba(255,255,255,0.1);
-      backdrop-filter: blur(10px);
-      border: 2px solid #00cfff;
-      border-radius: 10px;
-      text-align: center;
-      color: #00cfff;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(8px);
+      padding: 1.8rem;
+      border-radius: 15px;
       text-decoration: none;
+      color: #fff;
+      box-shadow: 0 0 20px rgba(0, 204, 255, 0.05);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
-      box-shadow: 0 0 15px rgba(0, 207, 255, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.08);
     }
 
     .card:hover {
-      transform: scale(1.08);
-      box-shadow: 0 0 20px rgba(0, 207, 255, 0.6);
+      transform: translateY(-6px);
+      box-shadow: 0 0 25px rgba(0, 204, 255, 0.25);
     }
 
     .card h2 {
-      font-size: 1.1rem;
+      font-size: 1.3rem;
       margin-bottom: 0.5rem;
     }
 
-    svg {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 1;
+    .card p {
+      color: #a0cce5;
+      font-size: 0.95rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      background: rgba(255, 255, 255, 0.05);
+      font-size: 0.9rem;
+      color: #ccc;
+      margin-top: 4rem;
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Mind Map: English Learning Evidences</h1>
-  </header>
 
-  <div class="map-container">
-    <svg>
-      <line x1="50%" y1="50%" x2="15%" y2="20%" stroke="#00cfff" stroke-width="2"/>
-      <line x1="50%" y1="50%" x2="85%" y2="20%" stroke="#00cfff" stroke-width="2"/>
-      <line x1="50%" y1="50%" x2="15%" y2="80%" stroke="#00cfff" stroke-width="2"/>
-      <line x1="50%" y1="50%" x2="85%" y2="80%" stroke="#00cfff" stroke-width="2"/>
-    </svg>
+<canvas id="background"></canvas>
 
-    <div class="brain"></div>
+<header>
+  <h1>Welcome to My English Learning Blog</h1>
+  <p>This space presents my evidence in English: videos, audios, and written texts created throughout the training process.</p>
+</header>
 
-    <!-- Cards -->
-    <a href="quiz1.html" class="card" style="top: 15%; left: 10%;">
-      <h2>📄 Quiz 1</h2>
-      <p>GA1-EV01</p>
-    </a>
+<main>
+  <div class="card-grid">
+    <!-- Cuestionarios -->
+    <a href="quiz1.html" class="card"><h2>📄 Cuestionario 1</h2><p>GA1-240202501-AA1-EV01</p></a>
+    <a href="quiz2.html" class="card"><h2>📄 Cuestionario 2</h2><p>GA2-240202501-AA1-EV01</p></a>
+    <a href="quiz3.html" class="card"><h2>📄 Cuestionario 3</h2><p>GA2-240202501-AA2-EV01</p></a>
+    <a href="quiz4.html" class="card"><h2>📄 Cuestionario 4</h2><p>GA3-240202501-AA1-EV01</p></a>
+    <a href="quiz5.html" class="card"><h2>📄 Cuestionario 5</h2><p>GA3-240202501-AA2-EV01</p></a>
+    <a href="quiz6.html" class="card"><h2>📄 Cuestionario 6</h2><p>GA4-240202501-AA1-EV01</p></a>
 
-    <a href="video1.html" class="card" style="top: 15%; left: 80%;">
-      <h2>🎥 Video 1</h2>
-      <p>GA2-EV02</p>
-    </a>
+    <!-- Videos -->
+    <a href="video1.html" class="card"><h2>🎥 Video 1</h2><p>Presentation - GA2-240202501-AA2-EV02</p></a>
+    <a href="video2.html" class="card"><h2>🎥 Video 2</h2><p>Virtual video interview - GA2-240202501-AA1-EV02</p></a>
 
-    <a href="audio1.html" class="card" style="top: 75%; left: 10%;">
-      <h2>🎧 Audio 1</h2>
-      <p>GA3-EV02</p>
-    </a>
-
-    <a href="video2.html" class="card" style="top: 75%; left: 80%;">
-      <h2>🎥 Video 2</h2>
-      <p>GA2-EV03</p>
-    </a>
+    <!-- Audios -->
+    <a href="audio1.html" class="card"><h2>🎧 Audio 1</h2><p>GA3-240202501-AA1-EV02</p></a>
+    <a href="audio2.html" class="card"><h2>🎧 Audio 2</h2><p>GA3-240202501-AA2-EV02</p></a>
   </div>
+</main>
+
+<footer>
+  <p>Created by Jeisson Tello &mdash; SENA 2025</p>
+</footer>
+
+<script>
+  const canvas = document.getElementById("background");
+  const ctx = canvas.getContext("2d");
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  const particles = [];
+  const colors = ["#00cfff", "#ffffff", "#00aaff", "#66ffff"];
+
+  class Particle {
+    constructor() {
+      this.x = Math.random() * canvas.width;
+      this.y = Math.random() * canvas.height;
+      this.radius = Math.random() * 2 + 1;
+      this.color = colors[Math.floor(Math.random() * colors.length)];
+      this.speedX = (Math.random() - 0.5) * 0.6;
+      this.speedY = (Math.random() - 0.5) * 0.6;
+    }
+
+    draw() {
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+      ctx.fillStyle = this.color;
+      ctx.fill();
+    }
+
+    update() {
+      this.x += this.speedX;
+      this.y += this.speedY;
+      if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+      if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+      this.draw();
+    }
+  }
+
+  function initParticles() {
+    for (let i = 0; i < 100; i++) {
+      particles.push(new Particle());
+    }
+  }
+
+  function animateParticles() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    particles.forEach(p => p.update());
+    requestAnimationFrame(animateParticles);
+  }
+
+  window.addEventListener("resize", () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  });
+
+  initParticles();
+  animateParticles();
+</script>
+
 </body>
 </html>
