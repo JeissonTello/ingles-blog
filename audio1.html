@@ -4,75 +4,129 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Audio - My Personal Opinion on Software Professionals</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
   <style>
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
+
     body {
-      font-family: 'Segoe UI', sans-serif;
-      margin: 0;
+      font-family: 'Inter', sans-serif;
       background: #0f2027;
       color: #fff;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1;
     }
 
     header {
-      background: rgba(0, 77, 153, 0.85);
-      padding: 2rem;
+      background: rgba(0, 77, 153, 0.9);
+      padding: 2.5rem 1rem;
       text-align: center;
       border-bottom: 2px solid #00cfff;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    header h1 {
+      font-size: 2rem;
+      color: #ffffff;
+      margin-bottom: 0.5rem;
+    }
+
+    header p {
+      color: #00cfff;
+      font-weight: 500;
     }
 
     main {
       max-width: 900px;
-      margin: 2rem auto;
-      background: rgba(255, 255, 255, 0.08);
-      padding: 2rem;
-      border-radius: 15px;
-      backdrop-filter: blur(10px);
-      box-shadow: 0 0 25px rgba(0,0,0,0.3);
+      margin: 3rem auto;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(15px);
+      padding: 2.5rem;
+      border-radius: 20px;
+      box-shadow: 0 0 40px rgba(0,0,0,0.5);
     }
 
-    h1, h2 {
+    h2 {
       color: #00cfff;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
     }
 
     .description {
       font-style: italic;
-      color: #ccc;
-      margin-bottom: 1.5rem;
+      color: #c0d6e4;
+      font-size: 1rem;
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+
+    .screenshot-container {
+      text-align: center;
+      margin-bottom: 2rem;
     }
 
     .screenshot {
       width: 100%;
       max-width: 700px;
-      display: block;
-      margin: 2rem auto;
       border-radius: 12px;
-      box-shadow: 0 0 12px rgba(0,0,0,0.4);
+      transition: transform 0.4s ease, filter 0.4s ease;
+      box-shadow: 0 0 20px rgba(0, 204, 255, 0.3);
+      cursor: zoom-in;
+    }
+
+    .screenshot:hover {
+      transform: scale(1.25);
+      filter: brightness(1.2);
+      z-index: 10;
+    }
+
+    .audio-button-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 1rem;
     }
 
     .audio-link {
       display: inline-block;
-      margin: 1rem 0;
-      padding: 0.7rem 1.5rem;
-      background-color: #00cfff;
+      padding: 0.8rem 1.8rem;
+      background: linear-gradient(135deg, #00cfff, #0077b6);
       color: #000;
-      text-decoration: none;
-      border-radius: 10px;
+      border-radius: 12px;
       font-weight: bold;
-      transition: background 0.3s ease;
+      text-decoration: none;
+      font-size: 1.1rem;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      animation: float 2.5s ease-in-out infinite;
     }
 
     .audio-link:hover {
-      background-color: #009acd;
+      transform: scale(1.1);
+      box-shadow: 0 8px 25px rgba(0, 255, 255, 0.4);
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
     }
 
     .back-button {
       display: inline-block;
-      margin-top: 2rem;
+      margin-top: 3rem;
       padding: 0.6rem 1.2rem;
       background-color: #00cfff;
       color: #000;
       border-radius: 10px;
       text-decoration: none;
       font-weight: bold;
+      transition: background-color 0.3s ease;
     }
 
     .back-button:hover {
@@ -82,26 +136,89 @@
 </head>
 <body>
 
-  <header>
-    <h1>Audio Evidence</h1>
-    <p>AUDIO ABOUT MY PERSONAL OPINION ON WHAT A PROFESSIONAL IN MY FIELD SHOULD HAVE</p>
-  </header>
+<canvas id="background"></canvas>
 
-  <main>
-    <h2>Evidence Description</h2>
-    <p class="description">
-      This audio was recorded as part of an English learning activity where I shared my personal opinion on the qualities and characteristics that a professional in my software development field should possess. Responsibility, adaptability, continuous learning, and teamwork were some of the aspects discussed.
-    </p>
+<header>
+  <h1>Audio Evidence</h1>
+  <p>AUDIO ABOUT MY PERSONAL OPINION ON WHAT A PROFESSIONAL IN MY FIELD SHOULD HAVE</p>
+</header>
 
+<main>
+  <h2>Evidence Description</h2>
+  <p class="description">
+    This audio was recorded as part of an English learning activity where I shared my personal opinion on the qualities and characteristics that a professional in my software development field should possess. Responsibility, adaptability, continuous learning, and teamwork were some of the aspects discussed.
+  </p>
+
+  <div class="screenshot-container">
     <img src="images/audio-evidence1.png" alt="Screenshot of audio evidence" class="screenshot">
+  </div>
 
+  <div class="audio-button-container">
     <a class="audio-link" href="https://send-voice.com/es/recording?id=e0ea8b05-697c-4e96-91e2-05b912a29c17" target="_blank">
       🎧 Listen to Audio on Send Voice
     </a>
+  </div>
 
-    <br>
+  <div style="text-align: center;">
     <a href="index.html" class="back-button">← Back to Home</a>
-  </main>
+  </div>
+</main>
+
+<script>
+  const canvas = document.getElementById("background");
+  const ctx = canvas.getContext("2d");
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  const particles = [];
+  const colors = ["#00cfff", "#ffffff", "#00aaff", "#66ffff"];
+
+  class Particle {
+    constructor() {
+      this.x = Math.random() * canvas.width;
+      this.y = Math.random() * canvas.height;
+      this.radius = Math.random() * 2 + 1;
+      this.color = colors[Math.floor(Math.random() * colors.length)];
+      this.speedX = (Math.random() - 0.5) * 0.6;
+      this.speedY = (Math.random() - 0.5) * 0.6;
+    }
+
+    draw() {
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+      ctx.fillStyle = this.color;
+      ctx.fill();
+    }
+
+    update() {
+      this.x += this.speedX;
+      this.y += this.speedY;
+      if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+      if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+      this.draw();
+    }
+  }
+
+  function initParticles() {
+    for (let i = 0; i < 100; i++) {
+      particles.push(new Particle());
+    }
+  }
+
+  function animateParticles() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    particles.forEach(p => p.update());
+    requestAnimationFrame(animateParticles);
+  }
+
+  window.addEventListener("resize", () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  });
+
+  initParticles();
+  animateParticles();
+</script>
 
 </body>
 </html>
