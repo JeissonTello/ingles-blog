@@ -4,185 +4,85 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Evidence of the Mind map (Personal Learning Environment) PLE GA4-240202501-AA1-EV02 & Personal Blog GA4-240202501-AA1-EV03</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
-      font-family: 'Inter', sans-serif;
-      background: #0f2027;
+      font-family: 'Segoe UI', sans-serif;
+      background: radial-gradient(ellipse at center, #0f2027, #203a43, #2c5364);
+      overflow: hidden;
       color: #fff;
-      overflow-x: hidden;
-      position: relative;
     }
 
-    canvas {
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: -1;
+    #brain {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 160px;
+      height: 160px;
+      transform: translate(-50%, -50%);
+      background-image: url('brain.svg'); /* Usa tu SVG aquí */
+      background-size: cover;
+      animation: pulse 2s infinite ease-in-out;
+      z-index: 2;
     }
 
-    header {
-      text-align: center;
-      padding: 4rem 1rem 2rem;
-      background: rgba(0, 77, 153, 0.9);
-      border-bottom: 2px solid #00cfff;
-      box-shadow: 0 0 12px rgba(0, 204, 255, 0.2);
-    }
-
-    header h1 {
-      font-size: 2.8rem;
-      color: #fff;
-      margin-bottom: 0.6rem;
-    }
-
-    header p {
-      font-size: 1.1rem;
-      color: #cdeaff;
-    }
-
-    main {
-      padding: 3rem 2rem;
-      max-width: 1200px;
-      margin: auto;
-    }
-
-    .card-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
+    @keyframes pulse {
+      0%, 100% { transform: translate(-50%, -50%) scale(1); }
+      50% { transform: translate(-50%, -50%) scale(1.1); }
     }
 
     .card {
-      background: rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(8px);
-      padding: 1.8rem;
+      position: absolute;
+      width: 180px;
+      padding: 1rem;
+      background: rgba(255,255,255,0.1);
+      border: 2px solid #00cfff;
       border-radius: 15px;
-      text-decoration: none;
+      text-align: center;
       color: #fff;
-      box-shadow: 0 0 20px rgba(0, 204, 255, 0.05);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      text-decoration: none;
+      transition: transform 0.3s;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 0 10px #00cfff77;
+      font-weight: bold;
     }
 
     .card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 0 25px rgba(0, 204, 255, 0.25);
+      transform: scale(1.1);
     }
 
-    .card h2 {
-      font-size: 1.3rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .card p {
-      color: #a0cce5;
-      font-size: 0.95rem;
-    }
-
-    footer {
-      text-align: center;
-      padding: 2rem 1rem;
-      background: rgba(255, 255, 255, 0.05);
-      font-size: 0.9rem;
-      color: #ccc;
-      margin-top: 4rem;
+    svg {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 1;
     }
   </style>
 </head>
 <body>
 
-<canvas id="background"></canvas>
+  <!-- SVG Brain Center -->
+  <div id="brain"></div>
 
-<header>
-  <h1>Welcome to My English Learning Blog</h1>
-  <p>This space presents my evidence in English: videos, audios, and written texts created throughout the training process.</p>
-</header>
+  <!-- Evidence Cards (Positioned as Mindmap Nodes) -->
+  <a href="quiz1.html" class="card" style="top:10%; left:15%;">📄 Cuestionario 1</a>
+  <a href="video1.html" class="card" style="top:25%; left:75%;">🎥 Video 1</a>
+  <a href="audio1.html" class="card" style="top:75%; left:20%;">🎧 Audio 1</a>
+  <a href="quiz5.html" class="card" style="top:60%; left:80%;">📄 Cuestionario 5</a>
+  <a href="video2.html" class="card" style="top:35%; left:40%;">🎥 Video 2</a>
+  <a href="audio2.html" class="card" style="top:65%; left:50%;">🎧 Audio 2</a>
 
-<main>
-  <div class="card-grid">
-    <!-- Cuestionarios -->
-    <a href="quiz1.html" class="card"><h2>📄 Cuestionario 1</h2><p>GA1-240202501-AA1-EV01</p></a>
-    <a href="quiz2.html" class="card"><h2>📄 Cuestionario 2</h2><p>GA2-240202501-AA1-EV01</p></a>
-    <a href="quiz3.html" class="card"><h2>📄 Cuestionario 3</h2><p>GA2-240202501-AA2-EV01</p></a>
-    <a href="quiz4.html" class="card"><h2>📄 Cuestionario 4</h2><p>GA3-240202501-AA1-EV01</p></a>
-    <a href="quiz5.html" class="card"><h2>📄 Cuestionario 5</h2><p>GA3-240202501-AA2-EV01</p></a>
-    <a href="quiz6.html" class="card"><h2>📄 Cuestionario 6</h2><p>GA4-240202501-AA1-EV01</p></a>
-
-    <!-- Videos -->
-    <a href="video1.html" class="card"><h2>🎥 Video 1</h2><p>Presentation - GA2-240202501-AA2-EV02</p></a>
-    <a href="video2.html" class="card"><h2>🎥 Video 2</h2><p>Virtual video interview - GA2-240202501-AA1-EV02</p></a>
-
-    <!-- Audios -->
-    <a href="audio1.html" class="card"><h2>🎧 Audio 1</h2><p>GA3-240202501-AA1-EV02</p></a>
-    <a href="audio2.html" class="card"><h2>🎧 Audio 2</h2><p>GA3-240202501-AA2-EV02</p></a>
-  </div>
-</main>
-
-<footer>
-  <p>Created by Jeisson Tello &mdash; SENA 2025</p>
-</footer>
-
-<script>
-  const canvas = document.getElementById("background");
-  const ctx = canvas.getContext("2d");
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-
-  const particles = [];
-  const colors = ["#00cfff", "#ffffff", "#00aaff", "#66ffff"];
-
-  class Particle {
-    constructor() {
-      this.x = Math.random() * canvas.width;
-      this.y = Math.random() * canvas.height;
-      this.radius = Math.random() * 2 + 1;
-      this.color = colors[Math.floor(Math.random() * colors.length)];
-      this.speedX = (Math.random() - 0.5) * 0.6;
-      this.speedY = (Math.random() - 0.5) * 0.6;
-    }
-
-    draw() {
-      ctx.beginPath();
-      ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-      ctx.fillStyle = this.color;
-      ctx.fill();
-    }
-
-    update() {
-      this.x += this.speedX;
-      this.y += this.speedY;
-      if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
-      if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
-      this.draw();
-    }
-  }
-
-  function initParticles() {
-    for (let i = 0; i < 100; i++) {
-      particles.push(new Particle());
-    }
-  }
-
-  function animateParticles() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    particles.forEach(p => p.update());
-    requestAnimationFrame(animateParticles);
-  }
-
-  window.addEventListener("resize", () => {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-  });
-
-  initParticles();
-  animateParticles();
-</script>
+  <!-- SVG Lines from Brain to Cards -->
+  <svg id="connections">
+    <line x1="50%" y1="50%" x2="15%" y2="10%" stroke="#00cfff" stroke-width="2"/>
+    <line x1="50%" y1="50%" x2="75%" y2="25%" stroke="#00cfff" stroke-width="2"/>
+    <line x1="50%" y1="50%" x2="20%" y2="75%" stroke="#00cfff" stroke-width="2"/>
+    <line x1="50%" y1="50%" x2="80%" y2="60%" stroke="#00cfff" stroke-width="2"/>
+    <line x1="50%" y1="50%" x2="40%" y2="35%" stroke="#00cfff" stroke-width="2"/>
+    <line x1="50%" y1="50%" x2="50%" y2="65%" stroke="#00cfff" stroke-width="2"/>
+  </svg>
 
 </body>
 </html>
